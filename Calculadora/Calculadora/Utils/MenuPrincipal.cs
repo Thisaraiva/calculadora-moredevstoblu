@@ -4,44 +4,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Calculadora
+namespace Calculadora.Utils
 {
     public class MenuPrincipal
     {
-        
+
 
         public static void Executar()
         {
             bool continuar = true;
-            do { 
-            MostrarTelaCalculadora();
-            int opcao = int.Parse(Console.ReadLine());
-
-            switch (opcao)
+            do
             {
-                case 1:
-                    //Soma;
-                    break;
-                case 2:
-                    //Divisao;
-                    break;
-                case 3:
-                    //Multiplicacao;
-                    break;
-                case 4:
-                    //Divisao;
-                    break;
-                case 0:
-                    Console.Clear();
-                    Console.WriteLine("Encerrando...");
-                    Thread.Sleep(1000);
-                    continuar = false;
-                    break;
-                default:
-                    Console.WriteLine("Opção Inválida");
-                    Thread.Sleep(1000);
-                    break;
-            }
+                MostrarTelaCalculadora();
+                int opcao = int.Parse(Console.ReadLine());
+
+                switch (opcao)
+                {
+                    case 1:
+                        //Soma;
+                        break;
+                    case 2:
+                        //Divisao;
+                        break;
+                    case 3:
+                        //Multiplicacao;
+                        break;
+                    case 4:
+                        //Divisao;
+                        break;
+                    case 0:
+                        Console.Clear();
+                        Console.WriteLine("Encerrando...");
+                        Thread.Sleep(1000);
+                        continuar = false;
+                        break;
+                    default:
+                        Console.WriteLine("Opção Inválida");
+                        Thread.Sleep(1000);
+                        break;
+                }
             } while (continuar);
         }
 

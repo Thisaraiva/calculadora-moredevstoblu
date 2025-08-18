@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Calculadora.Classes
 {
-    internal class Multiplicacao
+    internal class Multiplicacao : IOperacao
     {
 
         public static void Executar(decimal num1, decimal num2)
