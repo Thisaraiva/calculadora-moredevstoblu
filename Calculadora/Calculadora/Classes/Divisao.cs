@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 
 namespace Calculadora.Classes
 {
-    internal class Multiplicacao : IOperacao
-    {    
-
+    public class Divisao : IOperacao
+    {
         public decimal Calcular(decimal num1, decimal num2)
         {
-            return num1 * num2;
+            while (num2 == 0)
+            {
+                throw new DivideByZeroException("Divisão por zero não é permitida.");
+
+            }
+            return num1 / num2;
         }
     }
 }

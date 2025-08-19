@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Calculadora.Classes;
+using Calculadora.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +10,14 @@ namespace Calculadora.Utils
 {
     public class MenuPrincipal
     {
-
+        // O dicionário agora está pronto para ser inicializado com as classes.
+        private static Dictionary<int, IOperacao> _operacoes = new Dictionary<int, IOperacao>()
+        {
+            { 1, new Soma() },
+            { 2, new Subtracao() },
+            { 3, new Multiplicacao() },
+            { 4, new Divisao() }
+        };
 
         public static void Executar()
         {
@@ -16,32 +25,42 @@ namespace Calculadora.Utils
             do
             {
                 MostrarTelaCalculadora();
-                int opcao = int.Parse(Console.ReadLine());
+                int opcao = TipoUtils.InteragirEntradaInt("Digite a opção desejada: ");
 
-                switch (opcao)
+                if (_operacoes.ContainsKey(opcao))
                 {
-                    case 1:
-                        //Soma;
-                        break;
-                    case 2:
-                        //Divisao;
-                        break;
-                    case 3:
-                        //Multiplicacao;
-                        break;
-                    case 4:
-                        //Divisao;
-                        break;
-                    case 0:
-                        Console.Clear();
-                        Console.WriteLine("Encerrando...");
-                        Thread.Sleep(1000);
-                        continuar = false;
-                        break;
-                    default:
-                        Console.WriteLine("Opção Inválida");
-                        Thread.Sleep(1000);
-                        break;
+                    TipoUtils.LimparTela();
+
+                    decimal num1 = TipoUtils.InteragirEntradaDecimal("Digite o primeiro número: ");
+                    decimal num2;
+
+                    if (opcao == 4)
+                    {
+                        num2 = TipoUtils.InteragirEntradaDivisao("Digite o segundo número: ");
+                    }
+                    else
+                    {
+                        num2 = TipoUtils.InteragirEntradaDecimal("Digite o segundo número: ");
+                    }
+
+                    IOperacao operacao = _operacoes[opcao];
+                    decimal resultado = operacao.Calcular(num1, num2);
+
+                    Console.WriteLine($"O resultado da operação é: {resultado}");
+
+                    TipoUtils.AguardarEntrada();
+                }
+                else if (opcao == 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Encerrando...");
+                    Thread.Sleep(1000);
+                    continuar = false;
+                }
+                else
+                {
+                    Console.WriteLine("Opção Inválida");
+                    Thread.Sleep(1000);
                 }
             } while (continuar);
         }
@@ -53,7 +72,7 @@ namespace Calculadora.Utils
             Console.Clear();
 
             Console.WriteLine("╔═══════════════════════════════════╗");
-            Console.WriteLine("║       CALCULADORA GITHUB          ║");
+            Console.WriteLine("║        CALCULADORA GITHUB         ║");
             Console.WriteLine("╠═══════════════════════════════════╣");
             Console.WriteLine("║ Escolha uma operação:             ║");
             Console.WriteLine("║                                   ║");

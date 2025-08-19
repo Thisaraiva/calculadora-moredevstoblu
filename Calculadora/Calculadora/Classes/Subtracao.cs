@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace Calculadora.Classes
 {
-    internal class Multiplicacao : IOperacao
-    {    
-
+    public class Subtracao : IOperacao
+    {
         public decimal Calcular(decimal num1, decimal num2)
         {
-            return num1 * num2;
+            return num1 - num2;
         }
     }
 }
