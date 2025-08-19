@@ -11,7 +11,7 @@ namespace Calculadora.Utils
 {
     public class MenuPrincipal
     {
-        // O dicionário agora está pronto para ser inicializado com as classes.
+        // O dicionário mapeia as opções do menu para as classes de operação.
         private static Dictionary<int, IOperacao> _operacoes = new Dictionary<int, IOperacao>()
         {
             { 1, new Soma() },
@@ -34,7 +34,7 @@ namespace Calculadora.Utils
 
                     decimal num1 = TipoUtils.InteragirEntradaDecimal("Digite o primeiro número: ");
                     decimal num2;
-
+                    
                     if (opcao == 4)
                     {
                         num2 = TipoUtils.InteragirEntradaDivisao("Digite o segundo número: ");
@@ -46,8 +46,17 @@ namespace Calculadora.Utils
 
                     IOperacao operacao = _operacoes[opcao];
                     decimal resultado = operacao.Calcular(num1, num2);
+                    string nomeOperacao = "";
+                    switch (opcao)
+                    {
+                        case 1: nomeOperacao = "soma"; break;
+                        case 2: nomeOperacao = "subtração"; break;
+                        case 3: nomeOperacao = "multiplicação"; break;
+                        case 4: nomeOperacao = "divisão"; break;
+                    }
 
-                    Console.WriteLine($"O resultado da operação é: {resultado}");
+                    Console.WriteLine($"O resultado da {nomeOperacao} é: {resultado}");
+
 
                     TipoUtils.AguardarEntrada();
                 }
@@ -83,16 +92,8 @@ namespace Calculadora.Utils
             Console.WriteLine("║  [4] Divisão                      ║");
             Console.WriteLine("║  [0] Sair                         ║");
             Console.WriteLine("║                                   ║");
-            Console.WriteLine("╚═══════════════════════════════════╝");
-            Console.Write("Digite a opção desejada: ");
-        }
-
-        public static (decimal, decimal) SolicitarNumeros()
-        {
-            Console.Clear();
-            decimal num1 = Validador.LerNumero("Digite o primeiro número: ");
-            decimal num2 = Validador.LerNumero("Digite o segundo número: ");
-            return (num1, num2);
+            Console.WriteLine("╚═══════════════════════════════════╝");            
         }
     }
 }
+

@@ -49,20 +49,26 @@ namespace Calculadora.Utils
         public static decimal InteragirEntradaDivisao(string mensagem)
         {
             decimal resultado;
-            Console.Write(mensagem);
+            bool entradaValida;
 
-            while (!decimal.TryParse(Console.ReadLine(), out resultado) || resultado == 0)
+            do
             {
-                if (resultado == 0)
-                {
-                    Console.WriteLine("Erro: O divisor não pode ser zero. Por favor, digite um número diferente de zero.");
-                }
-                else
+                Console.Write(mensagem);
+                entradaValida = decimal.TryParse(Console.ReadLine(), out resultado);
+
+                if (!entradaValida)
                 {
                     Console.WriteLine("Entrada inválida. Por favor, digite um número.");
                 }
-                Console.Write(mensagem);
-            }
+                else if (resultado == 0)
+                {
+                    Console.WriteLine("Erro: O divisor não pode ser zero. Por favor, digite um número diferente de zero.");
+                    // Define como inválida para continuar o loop, pois o número zero não é aceitável.
+                    Console.WriteLine($"Valor de EntradaInvalida: {entradaValida}");
+                    entradaValida = false;
+                }
+            } while (!entradaValida);
+
             return resultado;
         }
     }
