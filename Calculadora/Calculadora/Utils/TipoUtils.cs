@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Calculadora.Utils
+﻿namespace Calculadora.Utils
 {
 
     public static class TipoUtils
@@ -63,8 +57,7 @@ namespace Calculadora.Utils
                 else if (resultado == 0)
                 {
                     Console.WriteLine("Erro: O divisor não pode ser zero. Por favor, digite um número diferente de zero.");
-                    // Define como inválida para continuar o loop, pois o número zero não é aceitável.
-                    Console.WriteLine($"Valor de EntradaInvalida: {entradaValida}");
+                    // Define como inválida para continuar o loop, pois o número zero não é aceitável.                    
                     entradaValida = false;
                 }
             } while (!entradaValida);

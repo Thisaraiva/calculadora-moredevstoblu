@@ -1,10 +1,5 @@
 ﻿using Calculadora.Classes;
 using Calculadora.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Calculadora.Utils
@@ -12,7 +7,7 @@ namespace Calculadora.Utils
     public class MenuPrincipal
     {
         // O dicionário mapeia as opções do menu para as classes de operação.
-        private static Dictionary<int, IOperacao> _operacoes = new Dictionary<int, IOperacao>()
+        private static readonly Dictionary<int, IOperacao> _operacoes = new Dictionary<int, IOperacao>()
         {
             { 1, new Soma() },
             { 2, new Subtracao() },
