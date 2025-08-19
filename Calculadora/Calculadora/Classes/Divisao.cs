@@ -11,7 +11,7 @@ namespace Calculadora.Classes
     {
         public decimal Calcular(decimal num1, decimal num2)
         {
-            while (num2 == 0)
+            if (num2 == 0)
             {
                 throw new DivideByZeroException("Divisão por zero não é permitida.");
 
