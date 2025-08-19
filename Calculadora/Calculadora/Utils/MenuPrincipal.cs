@@ -10,8 +10,6 @@ namespace Calculadora.Utils
 {
     public class MenuPrincipal
     {
-
-
         public static void Executar()
         {
             bool continuar = true;
@@ -20,22 +18,22 @@ namespace Calculadora.Utils
                 MostrarTelaCalculadora();
                 string opcao = Console.ReadLine();
 
-                Console.Clear();
-                decimal num1 = Validador.LerNumero("Digite o primeiro número: ");
-                decimal num2 = Validador.LerNumero("Digite o segundo número: ");
-
                 switch (opcao)
                 {
                     case "1":
+                        SolicitarNumeros();
                         //Soma(num1, num2);
                         break;
                     case "2":
+                        SolicitarNumeros();
                         //Divisao(num1, num2);
                         break;
                     case "3":
+                        SolicitarNumeros();
                         //Multiplicacao(num1, num2);
                         break;
                     case "4":
+                        SolicitarNumeros();
                         //Divisao(num1, num2);
                         break;
                     case "0":
@@ -71,6 +69,14 @@ namespace Calculadora.Utils
             Console.WriteLine("║                                   ║");
             Console.WriteLine("╚═══════════════════════════════════╝");
             Console.Write("Digite a opção desejada: ");
+        }
+
+        public static (decimal, decimal) SolicitarNumeros()
+        {
+            Console.Clear();
+            decimal num1 = Validador.LerNumero("Digite o primeiro número: ");
+            decimal num2 = Validador.LerNumero("Digite o segundo número: ");
+            return (num1, num2);
         }
     }
 }
