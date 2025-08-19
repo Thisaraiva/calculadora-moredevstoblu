@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Calculadora.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Calculadora.Utils
 {
@@ -16,23 +18,27 @@ namespace Calculadora.Utils
             do
             {
                 MostrarTelaCalculadora();
-                int opcao = int.Parse(Console.ReadLine());
+                string opcao = Console.ReadLine();
+
+                Console.Clear();
+                decimal num1 = Validador.LerNumero("Digite o primeiro número: ");
+                decimal num2 = Validador.LerNumero("Digite o segundo número: ");
 
                 switch (opcao)
                 {
-                    case 1:
-                        //Soma;
+                    case "1":
+                        //Soma(num1, num2);
                         break;
-                    case 2:
-                        //Divisao;
+                    case "2":
+                        //Divisao(num1, num2);
                         break;
-                    case 3:
-                        //Multiplicacao;
+                    case "3":
+                        //Multiplicacao(num1, num2);
                         break;
-                    case 4:
-                        //Divisao;
+                    case "4":
+                        //Divisao(num1, num2);
                         break;
-                    case 0:
+                    case "0":
                         Console.Clear();
                         Console.WriteLine("Encerrando...");
                         Thread.Sleep(1000);
