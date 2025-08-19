@@ -1,4 +1,5 @@
-﻿using Calculadora.Interfaces;
+﻿using Calculadora.Classes;
+using Calculadora.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,16 +28,16 @@ namespace Calculadora.Utils
                 switch (opcao)
                 {
                     case "1":
-                        //Soma(num1, num2);
+                        Adicao.Executar(num1, num2);
                         break;
                     case "2":
-                        //Divisao(num1, num2);
+                        Subtracao.Executar(num1, num2);
                         break;
                     case "3":
-                        //Multiplicacao(num1, num2);
+                        Multiplicacao.Executar(num1, num2);
                         break;
                     case "4":
-                        //Divisao(num1, num2);
+                        Divisao.Executar(num1, num2);
                         break;
                     case "0":
                         Console.Clear();

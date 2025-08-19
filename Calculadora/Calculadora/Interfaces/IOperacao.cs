@@ -11,7 +11,7 @@ namespace Calculadora.Interfaces
         // Metodo estatico para a resolução da operação
         public static void Executar(decimal num1, decimal num2)
         {
-            
+
         }
 
     }
