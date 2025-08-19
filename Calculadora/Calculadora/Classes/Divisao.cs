@@ -9,7 +9,7 @@ namespace Calculadora.Classes
 {
     internal class Divisao : IOperacao
     {
-        public static void Dividir(decimal num1, decimal num2)
+        public static void Executar(decimal num1, decimal num2)
         {
             if (num1 == 0 || num2 == 0)
             {
