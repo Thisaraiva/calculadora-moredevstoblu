@@ -8,6 +8,10 @@ namespace Calculadora.Interfaces
 {
     internal interface IOperacao
     {
+        public static void Executar(decimal num1, decimal num2)
+        {
+
+        }
 
     }
 }
