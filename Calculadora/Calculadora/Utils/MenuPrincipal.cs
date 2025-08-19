@@ -86,5 +86,13 @@ namespace Calculadora.Utils
             Console.WriteLine("╚═══════════════════════════════════╝");
             Console.Write("Digite a opção desejada: ");
         }
+
+        public static (decimal, decimal) SolicitarNumeros()
+        {
+            Console.Clear();
+            decimal num1 = Validador.LerNumero("Digite o primeiro número: ");
+            decimal num2 = Validador.LerNumero("Digite o segundo número: ");
+            return (num1, num2);
+        }
     }
 }

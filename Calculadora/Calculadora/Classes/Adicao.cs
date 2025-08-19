@@ -17,6 +17,8 @@ namespace Calculadora.Classes
 
             Console.WriteLine($"O seu resultado da adição de {num1} e {num2} é {resultado}");
 
+            Console.WriteLine("\n Aperte qualquer tecla para voltar");
+            Console.ReadKey();
         }
     }
 }
