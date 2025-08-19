@@ -20,7 +20,9 @@ namespace Calculadora.Classes
                 Console.WriteLine($"O seu Resultado da divisão de {num1} e {num2} é {resultado}");
             };
 
-            
+            Console.WriteLine("\n Aperte qualquer tecla para voltar");
+            Console.ReadKey();
+
 
         }
     }

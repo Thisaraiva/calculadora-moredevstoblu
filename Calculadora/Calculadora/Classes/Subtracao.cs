@@ -16,6 +16,9 @@ namespace Calculadora.Classes
 
             Console.WriteLine($"O seu resultado da subtração de {num1} e {num2} é {resultado}");
 
+            Console.WriteLine("\n Aperte qualquer tecla para voltar");
+            Console.ReadKey();
+
         }
     }
 }
